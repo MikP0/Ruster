@@ -237,9 +237,8 @@ impl Buffer {
     pub fn data_as_u32_vec(&self) -> Vec<u32> {
         let mut u32_vec = Vec::<u32>::new();
         for el in &self.data {
-            u32_vec.push(el.color.r as u32);
-            u32_vec.push(el.color.g as u32);
-            u32_vec.push(el.color.b as u32);
+            let (r, g, b) = (el.color.r as u32, el.color.g as u32, el.color.b as u32);
+            u32_vec.push((r << 16) | (g << 8) | b); //(r << 16) | (g << 8) | b
         }
         u32_vec
     }
