@@ -1,0 +1,11 @@
+[package]
+name = "ruster"
+version = "0.1.0"
+authors = ["MikP0 <210298@edu.p.lodz.pl>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+image = "*"
+minifb = "*"
