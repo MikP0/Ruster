@@ -179,9 +179,9 @@ impl Buffer {
         let topleft2 = dybc < 0. || (dybc == 0. && dxbc > 0.);
         let topleft3 = dyca < 0. || (dyca == 0. && dxca > 0.);
 
-        for h in min_width..max_width + 1 {
+        for h in min_width..max_width + 1{
             let x: f32 = ((h as f32) / half_width) - 1.;
-            for w in min_height..max_height + 1 {
+            for w in min_height..max_height + 1{
                 let y: f32 = ((w as f32) / half_height) - 1.;
 
                 let l1 = (dybc * (x - vecc[0]) - dxbc * (y - vecc[1])) * l1d;
@@ -193,7 +193,10 @@ impl Buffer {
                 let gc: f32 = l1 * c1_n.1 + l2 * c2_n.1 + l3 * c3_n.1;
                 let bc: f32 = l1 * c1_n.2 + l2 * c2_n.2 + l3 * c3_n.2;
 
-                let base = h + self.width * w;
+                let mut base = h + self.width * w;
+                if base > self.width * self.height - 1 {
+                    base = self.width * self.height - 1;
+                }
 
                 let depth = l1 * veca[2] as f32 + l2 * vecb[2] as f32 + l3 * vecc[2] as f32;
 

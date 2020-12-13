@@ -9,7 +9,7 @@ impl_vector!(Vec3, 3);
 impl VecOps for Vec3 {
     type VectorType = Vec3;
 
-    fn normalize(&self, vec: Self::VectorType) -> Self::VectorType {
+    fn normalize(&self, mut vec: Self::VectorType) -> Self::VectorType {
         let len = f32::sqrt(f32::powf(vec[0], 2.) + f32::powf(vec[1], 2.) + f32::powf(vec[2], 2.));
         [vec[0] / len, vec[1] / len, vec[2] / len]
     }

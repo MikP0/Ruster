@@ -256,7 +256,7 @@ pub trait WorldMatrix {
 
 impl WorldMatrix for Mat4 {
     fn set_lookat(eye: Vec3, center: Vec3, mut up: Vec3) -> Mat4 {
-        let mut f: Vec3 = center.sub(&eye);
+        let mut f: Vec3 = center;
 
         f = f.normalize(f);
         up = up.normalize(up);
