@@ -11,6 +11,7 @@ use crate::buffer::math::vec3::Vec3;
 use crate::buffer::math::vector::VecOps;
 use crate::buffer::mesh::*;
 
+// Consts
 const WIDTH: u32 = 800;
 const HEIGHT: u32 = 800;
 
